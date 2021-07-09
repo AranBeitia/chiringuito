@@ -1,5 +1,11 @@
-function hello() {
-    console.log("Hello Kitty");
-}
+var btnBuy = document
+    .querySelector("#to-buy")
+    .addEventListener("click", goToShopping);
 
-hello();
+var shoppingChart = document.querySelector("#carrito");
+var productChart = document.querySelector("#producto");
+
+function goToShopping() {
+    shoppingChart.classList.toggle("is-visible");
+    productChart.classList.toggle("is-hidden");
+}
