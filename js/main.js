@@ -1,29 +1,31 @@
 var btnBuy = document
-    .querySelector("#to-buy")
-    .addEventListener("click", goToShopping);
+	.querySelector('#to-buy')
+	.addEventListener('click', goToShopping)
 
-var shoppingChart = document.querySelector("#carrito");
-var productChart = document.querySelector("#producto");
+var productChart = document.querySelector('#producto')
+var shoppingChart = document.querySelector('#carrito')
+
+var formProfile = document.querySelector('#form-profile')
+var formAddress= document.querySelector('#form-address')
 
 function goToShopping() {
-    shoppingChart.classList.toggle("is-visible");
-    productChart.classList.toggle("is-hidden");
+  shoppingChart.classList.replace('is-hidden', 'is-visible')
+  productChart.classList.add('is-hidden')
 }
 
 /**  VALIDATIONS */
-const nameInput = document.querySelector('input');
-// const form = document.querySelector('form');
+const nameInput = document.querySelector('#name')
+document.getElementById('button-next').addEventListener('click', sendForm)
 
-nameInput.addEventListener('input', () => {
-  nameInput.setCustomValidity('');
-  nameInput.checkValidity();
-});
+function sendForm(e) {
+  e.preventDefault();
+  var valuename = nameInput.value
 
-nameInput.addEventListener('invalid', () => {
-  if(nameInput.value === '') {
-    nameInput.setCustomValidity('este campo es requerido!, no te dejo pasar');
+  let regex = /[A-Za-z]+/
+  if(valuename === '' || !regex.test(valuename) ) {
+    alert('no vale')
   } else {
-    nameInput.setCustomValidity('Sólo nombres con letras upper y lowercases. Vuelve a intentarlo!');
+    formProfile.classList.add('is-hidden')
+    formAddress.classList.replace('is-hidden', 'is-visible')
   }
-});
-
+}
