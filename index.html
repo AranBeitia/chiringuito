@@ -23,16 +23,16 @@
 					<h1>Step 1 - profile</h1>
 					<form action="" method="POST">
 						<label for="name">Your name</label>
-						<input type="text" id="name" placeholder="enter your name" required>
+						<input type="text" id="name" placeholder="enter your name" required pattern="[A-Za-z]+" minlength="5">
 
 						<label for="last-name">Your last name</label>
 						<input type="text" id="last-name" placeholder="enter your last name">
 
-						<input type="submit" value="validate">
+						<input type="submit" value="validate" id="button-next">
 					</form>
 				</section>
-        <!-- <section>ADDRESS</section>
-        <section>SHIPPING</section>
+        <section id="form-address" class="is-hidden">ADDRESS</section>
+       <!--  <section>SHIPPING</section>
         <section>END</section> -->
     </article>
 </body>
